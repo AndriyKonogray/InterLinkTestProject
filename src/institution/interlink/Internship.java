@@ -1,18 +1,36 @@
 package institution.interlink;
 
+import institution.University;
+import lombok.Getter;
+import lombok.Setter;
 import person.Student;
+import java.util.HashSet;
 
+@Getter
+@Setter
 public class Internship {
-    public Internship(String name) {
-        //TODO: Implementation is needed
+    private String name;
+    private HashSet<Student> students = new HashSet<>();
+
+    public Internship(String name, University university) {
+        setName(name);
+        HashSet<Student> students = new HashSet<>();
+        students.addAll(university.getStudents());
+        for(Student student : students){
+            if (student.getKnowledge().isLevelUpperIntermediate()) setStudent(student);
+        }
     }
 
     public void setStudent(Student student) {
-        //TODO: Implementation is needed
+        if(student.getFullName()!=null && student.getGender()!="" && student.getKnowledge().getGrade()>=60)
+            students.add(student);
     }
 
     public String getStudents() {
-        //TODO: Implementation is needed
-        return "Andrew Maslenko\nJulia Veselkina\n";
+        String result = "";
+        for(Student student : this.students){
+            result = result + student.getFullName() + "\n";
+        }
+        return result;
     }
 }
