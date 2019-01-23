@@ -3,6 +3,8 @@ package institution;
 import lombok.Getter;
 import lombok.Setter;
 import person.Student;
+import person.consciousness.Knowledge;
+
 import java.util.HashSet;
 
 @Getter
@@ -10,14 +12,25 @@ import java.util.HashSet;
 public class University {
     private String name;
     private HashSet<Student> students = new HashSet<>();
+    private int universityKnowledgeLevel = 0;
+
     public University(String name) { setName(name); }
 
     public void setStudent(Student student) {
-        if(student.getFullName()!=null && student.getGender()!="" && student.getKnowledge().getGrade()>=60)
+        if(student.getFullName() != null && student.getGender() != "" && student.getKnowledge().getLevel() >= 60)
             students.add(student);
     }
 
     public void addStudent(Student student) {
         setStudent(student);
+        setUniversityKnowledgeLevel();
+    }
+
+    private void setUniversityKnowledgeLevel(){
+        int result = 0;
+        for(Student student : students)
+            result += student.getKnowledge().getLevel();
+        result /= students.size();
+        universityKnowledgeLevel = result;
     }
 }

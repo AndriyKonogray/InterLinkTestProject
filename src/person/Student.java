@@ -20,7 +20,7 @@ public class Student extends  Person {
 
     @Override
     public String getFullName(){
-        if (getName()!=null && getSurname()!=null) return getName() + " " + getSurname();
+        if (getName() != null && getSurname() != null) return getName() + " " + getSurname();
         else return null;
     }
 

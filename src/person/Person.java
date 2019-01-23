@@ -10,8 +10,8 @@ public class Person {
     private String surname;
     private String patronymic;
     private String gender;
-    private static final String male="MALE";
-    private static final String female="FEMALE";
+    private static final String male = "MALE";
+    private static final String female = "FEMALE";
 
     public String getFullName(){
         return getName() + " " + getSurname() + " " + getPatronymic();
@@ -19,7 +19,7 @@ public class Person {
 
     public void setGender(String gender){
         if (gender.equals(male) || gender.equals(female)) this.gender=gender;
-        else this.gender="";
+        else this.gender = "";
     }
 
 }

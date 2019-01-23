@@ -17,18 +17,18 @@ public class Internship {
         HashSet<Student> students = new HashSet<>();
         students.addAll(university.getStudents());
         for(Student student : students){
-            if (student.getKnowledge().isLevelUpperIntermediate()) setStudent(student);
+            if (student.getKnowledge().getLevel() >= university.getUniversityKnowledgeLevel()) setStudent(student);
         }
     }
 
     public void setStudent(Student student) {
-        if(student.getFullName()!=null && student.getGender()!="" && student.getKnowledge().getGrade()>=60)
+        if(student.getFullName() != null && student.getGender() != "" && student.getKnowledge().getLevel()>=60)
             students.add(student);
     }
 
     public String getStudents() {
         String result = "";
-        for(Student student : this.students){
+        for(Student student : students){
             result = result + student.getFullName() + "\n";
         }
         return result;
