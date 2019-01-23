@@ -17,13 +17,14 @@ public class University {
     public University(String name) { setName(name); }
 
     public void setStudent(Student student) {
-        if(student.getFullName() != null && student.getGender() != "" && student.getKnowledge().getLevel() >= 60)
+        if(student.getFullName() != null && student.getGender() != "" && student.getKnowledge().getLevel() >= 60) {
             students.add(student);
+            setUniversityKnowledgeLevel();
+        }
     }
 
     public void addStudent(Student student) {
         setStudent(student);
-        setUniversityKnowledgeLevel();
     }
 
     private void setUniversityKnowledgeLevel(){
