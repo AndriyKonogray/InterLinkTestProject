@@ -1,8 +1,10 @@
 package person;
 
 import person.consciousness.Knowledge;
+import lombok.Getter;
+import lombok.Setter;
 
-public class Student {
+public class Student extends  Person {
 
     public Student(String name) {
         //TODO: Implementation is needed

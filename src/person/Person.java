@@ -12,6 +12,6 @@ public class Person {
     private String sex;
 
     public String getFullName(){
-        return getName() + " " + getSurname() + getPutronomic();
+        return getName() + " " + getSurname() + " " + getPutronomic();
     }
 }
