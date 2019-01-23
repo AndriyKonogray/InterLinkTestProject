@@ -1,17 +1,23 @@
 package institution;
 
+import lombok.Getter;
+import lombok.Setter;
 import person.Student;
+import java.util.HashSet;
 
+@Getter
+@Setter
 public class University {
-    public University(String name) {
-        //TODO: Implementation is needed
-    }
+    private String name;
+    private HashSet<Student> students = new HashSet<>();
+    public University(String name) { setName(name); }
 
     public void setStudent(Student student) {
-        //TODO: Implementation is needed
+        if(student.getFullName()!=null && student.getGender()!="" && student.getKnowledge().getGrade()>=60)
+            students.add(student);
     }
 
     public void addStudent(Student student) {
-        //TODO: Implementation is needed
+        setStudent(student);
     }
 }
